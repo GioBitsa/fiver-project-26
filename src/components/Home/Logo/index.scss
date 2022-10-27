@@ -1,0 +1,27 @@
+.logo-container {
+  z-index: 0;
+  width: 700px;
+  border-radius: 2%; // Updated on 4th Oct 2022
+  
+
+  .solid-logo {
+    width: 100%;
+    opacity: 0;
+    // transform: rotateZ(30deg) !important;
+    z-index: 1;
+    border-radius: 2%; // Updated on 4th Oct 2022
+  }
+}
+// Hover Created on 4th Oct 2022 not uploaded yet
+.logo-container:hover{
+
+  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+.svg-container {
+  stroke: #ffd700;
+  stroke-width: 10;
+}
