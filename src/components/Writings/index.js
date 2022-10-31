@@ -114,46 +114,45 @@ const About = () => {
                     toggleState === 1 ? "content  active-content" : "content"
                   }
                 >
-                  {storiesArray?.map(
-                    (item, index) =>
-                      item.type === "short" && (
-                        <div className="story-button" key={index}>
-                          <h2
-                            onClick={() => {
-                              toggleModal();
-                              setMakeEdit(false);
-                              setModalContent({
-                                title: item.title,
-                                text: item.text,
-                              });
-                            }}
-                          >
-                            {item.title}
-                          </h2>
-                          {localStorage.getItem("admin") && (
-                            <div className="crud">
-                              <button
-                                onClick={() => {
-                                  setMakeEdit(true);
-                                  toggleModal();
-                                  setEditedContent({
-                                    id: item._id,
-                                    type: item.type,
-                                    title: item.title,
-                                    text: item.text,
-                                  });
-                                }}
-                              >
-                                R
-                              </button>
-                              <button onClick={() => handleDelete(item._id)}>
-                                X
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      )
-                  )}
+                  {storiesArray
+                    .filter((item) => item.type === "short")
+                    ?.map((item, index) => (
+                      <div className="story-button" key={index}>
+                        <h2
+                          onClick={() => {
+                            toggleModal();
+                            setMakeEdit(false);
+                            setModalContent({
+                              title: item.title,
+                              text: item.text,
+                            });
+                          }}
+                        >
+                          {item.title}
+                        </h2>
+                        {localStorage.getItem("admin") && (
+                          <div className="crud">
+                            <button
+                              onClick={() => {
+                                setMakeEdit(true);
+                                toggleModal();
+                                setEditedContent({
+                                  id: item._id,
+                                  type: item.type,
+                                  title: item.title,
+                                  text: item.text,
+                                });
+                              }}
+                            >
+                              R
+                            </button>
+                            <button onClick={() => handleDelete(item._id)}>
+                              X
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
                 </div>
 
                 <div
@@ -167,6 +166,45 @@ const About = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Sapiente voluptatum qui adipisci.
                   </p>
+                  {storiesArray
+                    .filter((item) => item.type === "long")
+                    ?.map((item, index) => (
+                      <div className="story-button" key={index}>
+                        <h2
+                          onClick={() => {
+                            toggleModal();
+                            setMakeEdit(false);
+                            setModalContent({
+                              title: item.title,
+                              text: item.text,
+                            });
+                          }}
+                        >
+                          {item.title}
+                        </h2>
+                        {localStorage.getItem("admin") && (
+                          <div className="crud">
+                            <button
+                              onClick={() => {
+                                setMakeEdit(true);
+                                toggleModal();
+                                setEditedContent({
+                                  id: item._id,
+                                  type: item.type,
+                                  title: item.title,
+                                  text: item.text,
+                                });
+                              }}
+                            >
+                              R
+                            </button>
+                            <button onClick={() => handleDelete(item._id)}>
+                              X
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
