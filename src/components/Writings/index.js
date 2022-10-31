@@ -5,7 +5,7 @@ import "./index.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = "https://project-26-server.herokuapp.com";
+const API = "https://project-26-server.herokuapp.com/";
 
 const About = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -13,6 +13,7 @@ const About = () => {
   const [storiesArray, setStoriesArray] = useState([]);
   const [modalContent, setModalContent] = useState({});
   const [editedContent, setEditedContent] = useState({});
+  const [update, setUpdate] = useState(false);
 
   const navigate = useNavigate();
 
@@ -28,20 +29,21 @@ const About = () => {
   };
 
   const handleDelete = (id) => {
+    setMakeEdit(false);
     axios
-      .delete(`${API}/${id}`)
-      .then(() => console.log("Deleted!"))
+      .delete(`${API}${id}`)
+      .then(() => setUpdate(!update))
       .catch((error) => console.log(error));
   };
 
   const handleEdit = (id) => {
     axios
-      .patch(`${API}/${id}`, {
+      .put(`${API}${id}`, {
         type: editedContent.type,
         title: editedContent.title,
         text: editedContent.text,
       })
-      .then(() => console.log("Updated!"))
+      .then(() => setUpdate(!update))
       .catch((error) => console.log(error));
   };
 
@@ -58,7 +60,7 @@ const About = () => {
     return setTimeout(() => {
       setLetterClass("text-animate-hover");
     }, 3000);
-  }, [makeEdit]);
+  }, [makeEdit, update]);
 
   if (modal) {
     document.body.classList.add("active-modal");
