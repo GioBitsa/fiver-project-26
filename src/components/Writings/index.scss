@@ -169,6 +169,10 @@
     font-size: 18px;
 }
 
+.modal {
+  transform: translateX(30px);
+}
+
 .modal, .overlay {
     width: 100vw;
     height: 100vh;
@@ -196,7 +200,7 @@
     padding: 14px 28px;
     border-radius: 3px;
     max-width: 600px;
-    min-width: 300px;
+    min-width: 220px;
     max-height: 80vh;
     overflow-y: auto;
 
